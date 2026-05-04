@@ -182,9 +182,9 @@ def cmd_list(args):
         return
     now = ca_utils.utcnow()
     print(
-        f"{'Serial':<12} {'Username':<20} {'Status':<10} {'Issued':<12} {'Expires':<12}"
+        f"{'Serial':<55} {'Username':<15} {'Status':<10} {'Issued':15} {'Expires':<12}"
     )
-    print("-" * 78)
+    print("-" * 110)
     for e in db["certificates"]:
         serial = e["serial"]
         username = e["username"]
@@ -197,7 +197,7 @@ def cmd_list(args):
             else:
                 status_str = "\033[92mVALID\033[0m  "
         print(
-            f"#{serial:<11} {username:<20} {status_str:<12} {e['issued'][:10]:<12} {e['expires'][:10]:<12}"
+            f"#{serial:<55} {username:<15} {status_str:<18} {e['issued'][:10]:<15} {e['expires'][:10]:<12}"
         )
 
 
