@@ -207,8 +207,8 @@ def cmd_info(args):
     print(f"Subject       : {cert.subject.rfc4514_string()}")
     print(f"Issuer        : {cert.issuer.rfc4514_string()}")
     print(f"Serial        : {cert.serial_number}")
-    print(f"Valid From    : {cert.not_valid_before:%Y-%m-%d %H:%M:%S}")
-    print(f"Valid Until   : {cert.not_valid_after:%Y-%m-%d %H:%M:%S}")
+    print(f"Valid From    : {cert.not_valid_before_utc:%Y-%m-%d %H:%M:%S}")
+    print(f"Valid Until   : {cert.not_valid_after_utc:%Y-%m-%d %H:%M:%S}")
     print(f"Signature Alg : {cert.signature_algorithm_oid._name}")
     print(f"Key Size      : {cert.public_key().key_size} bits")
     try:
